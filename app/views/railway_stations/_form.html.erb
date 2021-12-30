@@ -1,0 +1,15 @@
+<%= form_with(model: railway_station) do |form| %>
+  <% if railway_station.errors.any? %>
+    <div style="color: red">
+      <%= render 'common/error', resource: railway_station %>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @route.title %>
+</p>
+<%= render 'list_stations_and_trains' %>
+
+<div>
+  <%= link_to "Update", edit_route_path(@route) %> |
+  <%= link_to "Back", routes_path %>
+</div>
+
+<div style="height: 10px;"></div>
+
+<%= button_to 'Delete', @route, method: :delete, data: { confirm: 'Are you sure?' } %>
