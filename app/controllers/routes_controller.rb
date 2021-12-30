@@ -38,13 +38,13 @@ class RoutesController < ApplicationController
     redirect_to routes_path
   end
 
+  private
+
   def set_route
     @route = Route.find(params[:id])
   end
 
-  private
-
   def route_params
-    params.require(:route).permit(:title)
+    params.require(:route).permit(:title, railway_station_ids: [])
   end
 end
