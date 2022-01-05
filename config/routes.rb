@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  get 'carriages/index'
   resources :trains
   resources :railway_stations
   resources :routes
+  resources :carriages
 
   get 'home/index'
 

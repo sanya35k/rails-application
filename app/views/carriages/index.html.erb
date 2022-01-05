@@ -1,0 +1,24 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>List carriage</h1>
+
+<% @carriage.each do |carriage| %>
+  <%= carriage.carriage_type %>
+  <%= carriage.top_seats %>
+  <%= carriage.bottom_seats %>
+
+  <div style="height: 10px;"></div>
+
+  <%= link_to "Show", carriage %> |
+  <%= link_to "Update", edit_carriage_path(carriage) %>
+
+  <div style="height: 10px;"></div>
+
+  <%= button_to 'Delete', carriage, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+  <div style="height: 10px;"></div>
+<% end %>
+
+
+
+<%= link_to "New", new_carriage_path %>
