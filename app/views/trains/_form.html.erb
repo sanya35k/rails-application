@@ -1,0 +1,24 @@
+<%= form_with(model: train) do |form| %>
+  <% if train.errors.any? %>
+    <%= render 'common/error', resource: train %>
+  <% end %>
+
+  <div>
+    <%= form.label :number, style: "display: block" %>
+    <%= form.number_field :number %>
+  </div>
+
+  <div>
+    <%= form.label :current_station, 'Current station' %>
+    <%= form.collection_select :current_station_id, RailwayStation.all, :id, :title %>
+  </div>
+
+  <div>
+    <%= form.label :route, 'Route' %>
+    <%= form.collection_select :route_id, Route.all, :id, :title %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
