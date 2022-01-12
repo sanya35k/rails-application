@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>List routes</h1>
+
+<div>
+  <% @routes.each do |route| %>
+    <%= route.title %>
+    <p>
+      <%= link_to "Show", route %> |
+      <%= link_to "Update", edit_route_path(route) %>
+      <%= button_to 'Delete', route, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New", new_route_path %>
