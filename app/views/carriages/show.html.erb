@@ -2,7 +2,7 @@
 
 <p>
   <strong>Type:</strong>
-  <%= @carriage.carriage_type %>
+  <%= @carriage.type %>
 </p>
 <p>
   <strong>Train:</strong>
@@ -10,11 +10,25 @@
 </p>
 <p>
   <strong>Top seats:</strong>
-  <%= @carriage.top_seats %>
+  <%= @carriage.top_seats || 0%>
 </p>
 <p>
   <strong>Bottom seats:</strong>
-  <%= @carriage.bottom_seats %>
+  <%= @carriage.bottom_seats || 0%>
+</p>
+
+<p>
+  <strong>Side top seats:</strong>
+  <%= @carriage.side_top_seats || 0 %>
+</p>
+<p>
+  <strong>Side bottom seats:</strong>
+  <%= @carriage.side_bottom_seats || 0 %>
+</p>
+
+<p>
+  <strong>Sitting seats:</strong>
+  <%= @carriage.sitting_seats || 0 %>
 </p>
 
 <%= link_to 'Update', edit_carriage_path(@carriage) %> |

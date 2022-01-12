@@ -19,6 +19,11 @@
   </div>
 
   <div>
+    <%= form.label :sort, 'Carriages order' %>
+    <%= form.select :sort, options_for_select([['Head', 1], ['Tail', 0 ]]) %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
