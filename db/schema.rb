@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_11_124416) do
+ActiveRecord::Schema.define(version: 2022_01_13_122142) do
 
   create_table "carriages", force: :cascade do |t|
     t.string "type"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 2022_01_11_124416) do
     t.integer "railway_station_id"
     t.integer "route_id"
     t.integer "number"
+    t.string "departure_time"
+    t.string "arrival_time"
     t.index ["railway_station_id"], name: "index_railway_stations_routes_on_railway_station_id"
     t.index ["route_id"], name: "index_railway_stations_routes_on_route_id"
   end
@@ -54,6 +56,9 @@ ActiveRecord::Schema.define(version: 2022_01_11_124416) do
     t.integer "last_station_id"
     t.integer "user_id"
     t.integer "train_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "passport_number"
     t.index ["first_station_id"], name: "index_tickets_on_first_station_id"
     t.index ["last_station_id"], name: "index_tickets_on_last_station_id"
     t.index ["train_id"], name: "index_tickets_on_train_id"
@@ -72,9 +77,10 @@ ActiveRecord::Schema.define(version: 2022_01_11_124416) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "first_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "last_name"
   end
 
 end

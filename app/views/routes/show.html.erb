@@ -4,13 +4,35 @@
   <strong>Title:</strong>
   <%= @route.title %>
 </p>
+
+<p>Stations:</p>
+<table>
+  <tbody>
+  <% @route.railway_stations.ordered.each do |station| %>
+    <tr>
+      <td><%= station.title %></td>
+      <td>
+        <%= form_tag update_position_railway_station_path(station), method: :patch do %>
+          <%= number_field_tag :position, station.position_in(@route) %>
+          <%= hidden_field_tag :route_id, @route.id %>
+          <%= submit_tag 'Update position' %>
+        <% end %>
+      </td>
+
+      <td>
+        <%= form_tag update_station_time_railway_station_path(station), method: :patch do %>
+          <%= text_field_tag :departure_time, station.departure_time_in(@route) %>
+          <%= text_field_tag :arrival_time, station.arrival_time_in(@route) %>
+          <%= hidden_field_tag :route_id, @route.id %>
+          <%= submit_tag 'Update time' %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
 <%= render 'list_stations_and_trains' %>
 
-<div>
-  <%= link_to "Update", edit_route_path(@route) %> |
-  <%= link_to "Back", routes_path %>
-</div>
-
-<div style="height: 10px;"></div>
-
-<%= button_to 'Delete', @route, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Update', edit_route_path(@route) %> |
+<%= link_to 'Back', routes_path %>

@@ -5,9 +5,9 @@
 <% @carriages.each do |carriage| %>
   <%= carriage.type %>
   <%= carriage.train.number %>
+
   <%= carriage.top_seats || 0%>
   <%= carriage.bottom_seats || 0%>
-
   <%= carriage.side_top_seats || 0 %>
   <%= carriage.side_bottom_seats || 0 %>
   <%= carriage.sitting_seats || 0 %>
@@ -26,4 +26,4 @@
   <div style="height: 10px;"></div>
 <% end %>
 
-<%= link_to "New", new_carriage_path %>
+<!-- <%= link_to "New", new_carriage_path %> -->

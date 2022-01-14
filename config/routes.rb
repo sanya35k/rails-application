@@ -1,16 +1,23 @@
 Rails.application.routes.draw do
-  get 'carriages/index'
-  resources :trains
-  resources :railway_stations
-  resources :routes
-  resources :carriages
-
   get 'home/index'
-
   root 'home#index'
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :trains do
+    resources :tickets
+    resources :carriages
+  end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :railway_stations do
+    patch :update_position, on: :member
+    patch :update_station_time, on: :member
+  end
+
+  resources :routes do
+    get :search_route, on: :collection
+    get :trains_on_route, on: :member
+  end
+
+  resources :carriages
+
+  resource :search, only: %i[new show edit]
 end

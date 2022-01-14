@@ -5,6 +5,7 @@
   </p>
 
   <%= link_to 'Show', train %> |
+  <td><%= link_to 'View tickets', train_tickets_path(train) %></td> |
   <%= link_to 'Update', edit_train_path(train) %>
   <div style="height: 15px;"></div>
   <%= button_to 'Delete', train, method: :delete, data: { confirm: 'Are you sure?' } %>
