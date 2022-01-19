@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Your Tickets:</h1>
+<% @tickets.each do |ticket| %>
+  <p>
+    <%= link_to "##{ticket.id}", train_ticket_path(ticket.train, ticket) %> |
+    <%= "Train - #{ticket.train.number}" %> |
+    <%= "Passport - #{ticket.passport_number}" %> |
+    <%= "#{ticket.first_name} #{ticket.last_name}" %>
+  </p>
+<% end %>

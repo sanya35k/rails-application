@@ -27,8 +27,11 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+gem 'devise'
+
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
+gem 'pry'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -62,6 +65,10 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  gem 'spring'
+  gem 'spring-watcher-listen'
+  gem 'letter_opener'
 end
 
 group :test do

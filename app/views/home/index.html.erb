@@ -1,0 +1,18 @@
+<h1>Home</h1>
+
+<% if user_signed_in? %>
+  <% if current_user.admin? %>
+    <div>
+      <%= link_to 'List stations', admin_railway_stations_path %> |
+      <%= link_to 'List trains', admin_trains_path %> |
+      <%= link_to 'List carriages', admin_carriages_path %> |
+      <%= link_to 'List routes', admin_routes_path %>
+    </div>
+  <% end %>
+<% end %>
+
+<div style="height: 10px;"></div>
+
+<%= link_to 'All Tickets', admin_tickets_path %> |
+<%= link_to 'Your Tickets', tickets_path %> |
+<%= link_to 'Search', search_path %>
