@@ -1,14 +1,12 @@
 <div id="<%= dom_id train %>">
   <p>
-    <strong>Number:</strong>
+    <strong><%= t('.number') %></strong>
     <%= train.number %>
   </p>
 
-  <%= link_to 'Show', admin_train_path(train) %> |
+  <%= link_to t('.show'), admin_train_path(train) %> |
 
-
-
-  <%= link_to 'Update', edit_admin_train_path(train) %>
-  <div style="height: 15px;"></div>
-  <%= button_to 'Delete', admin_train_path(train), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to t('.update'), edit_admin_train_path(train) %>
+  <div style="height: 8px;"></div>
+  <%= button_to t('.delete'), admin_train_path(train), method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>

@@ -6,18 +6,20 @@ class Admin::CarriagesController < Admin::BaseController
     @carriages = Carriage.all
   end
 
-  def show; end
+  def show
+  end
 
   def new
     @carriage = Carriage.new
   end
 
-  def edit; end
+  def edit
+  end
 
   def create
     @carriage = @train.carriages.new(carriage_params)
     if @carriage.save
-      redirect_to admin_carriage_path(@carriage.becomes(Carriage))
+      redirect_to admin_carriages_path(@carriage.becomes(Carriage))
     else
       render :new
     end
@@ -25,7 +27,7 @@ class Admin::CarriagesController < Admin::BaseController
 
   def update
     if @carriage.update(carriage_params)
-      redirect_to admin_carriage_path
+      redirect_to admin_carriages_path
     else
       render :edit
     end
@@ -33,7 +35,7 @@ class Admin::CarriagesController < Admin::BaseController
 
   def destroy
     @carriage.destroy
-    redirect_to admin_carriage_path
+    redirect_to admin_carriages_path
   end
 
   private
@@ -43,7 +45,9 @@ class Admin::CarriagesController < Admin::BaseController
   end
 
   def set_carriage
+    #@carriage = Carriage.find_by_id(params[:id])
     @carriage = Carriage.find(params[:id])
+    #@carriage = Cart.create(:cart => params[:id])
   end
 
   def set_train

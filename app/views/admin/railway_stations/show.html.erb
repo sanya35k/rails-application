@@ -1,7 +1,6 @@
-<p>
-  <strong>Title:</strong>
-  <%= @railway_station.title %>
-</p>
+<strong>Title:</strong>
+<%= @railway_station.title %>
+
 <% if @railway_station.routes.empty? %>
   <p>This station isn't included in any routes.</p>
 <% else %>
@@ -14,4 +13,3 @@
 <% end %>
 <%= link_to 'Edit', edit_admin_railway_station_path(@railway_station) %> |
 <%= link_to 'Back', admin_railway_stations_path %>
-</div>

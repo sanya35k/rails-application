@@ -11,7 +11,8 @@ class TicketsController < ApplicationController
     @tickets = current_user.tickets
   end
 
-  def show; end
+  def show
+  end
 
   def create
     @ticket = @train.tickets.new(ticket_params)
@@ -19,6 +20,7 @@ class TicketsController < ApplicationController
     if @ticket.save
       redirect_to train_ticket_path(@train, @ticket)
     else
+      #render :new
       redirect_to new_train_ticket_path(@train)
     end
   end
@@ -31,7 +33,13 @@ class TicketsController < ApplicationController
   private
 
   def set_train
+    begin
     @train = Train.find(params[:train_id])
+    rescue
+      redirect_to tickets_path
+    end
+
+
   end
 
   def set_ticket

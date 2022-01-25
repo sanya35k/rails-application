@@ -1,40 +1,88 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>RailsApplication</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for?(:title) ? yield(:title) : "RailsApplication" %></title>
   <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  <%= javascript_importmap_tags %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
 </head>
 
 <body>
-<div class="main center">
-  <div class="header">
-    <div class="profile">
-      <% if user_signed_in? %>
-        <p>Email: <%= current_user.email %></p>
-        <p>Hello, <%= current_user.first_name %></p>
-      <% end %>
-    </div>
-    <div class="login-link">
-      <% if user_signed_in? %>
-        <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to 'Log in', new_user_session_path %>
-      <% end %>
-    </div>
-  </div>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <%= yield %>
+<div class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <nav class="navbar navbar-expand-md navbar-dark ">
+      <%= link_to t('.railway_station'), home_index_path, class: 'navbar-brand' %>
 
-  <div style="height: 200px;"></div>
-  <%= '-----------------------------------------' %>
-  <p>(с) 2021 Konstantinov Alexander</p>
-  <%= link_to 'Home', home_index_path %>
+      <div class="navbar-collapse collapse navbar-responsive-collapse">
+        <ul class="nav navbar-nav">
+          <li><%= link_to t('.search'), search_path, class: 'navbar-brand' %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to t('.log_out'), destroy_user_session_path, method: :delete, class: 'btn btn-info' %></li>
+          <% else %>
+            <li><%= link_to t('.log_in'), new_user_session_path, class: 'btn btn-info' %></li>
+          <% end %>
+        </ul>
+      </div>
+  </div>
 </div>
+
+
+<!--    </head>
+    <body>
+    <div class="container-fluid p-0 bg-dark">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav class="navbar navbar-expand-md navbar-dark ">
+              <%#= link_to 'RailwayStation', home_index_path, class: 'navbar-brand' %>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <%# if user_signed_in? %>
+                    <li class="pt-2 nav-item">
+                      <p>Email: <%#= current_user.email %></p>
+                    </li>
+                  <%# end %>
+                  <li class="nav-item">
+                    <%# if user_signed_in? %>
+                      <%#= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+                    <%# else %>
+                      <%#= link_to 'Log in', new_user_session_path, class: 'nav-link' %>
+                    <%# end %>
+                  </li>
+                </ul>
+                <%#= link_to 'Search', search_path, class: 'btn btn-info' %>
+              </div>
+            </nav>
+          </div>
+
+        </div>
+      </div>
+    </div>-->
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-9">
+      <%= bootstrap_flash %>
+      <%= yield %>
+    </div>
+  </div><!--/row-->
+
+  <footer>
+    <div style="height: 2px;"></div>
+    <%= '-------------------------------------------' %>
+    <p>&copy; 2021 Konstantinov Alexander</p>
+  </footer>
+
+</div> <!-- /container -->
+
 </body>
 </html>

@@ -29,6 +29,9 @@ gem "jbuilder"
 
 gem 'devise'
 
+gem "therubyracer"
+gem "twitter-bootstrap-rails"
+
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
 gem 'pry'

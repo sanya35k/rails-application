@@ -1,29 +1,28 @@
-<%= form_with(model: [:admin, train]) do |form| %>
+<%= form_with(model: [:admin, train], local: true) do |form| %>
   <% if train.errors.any? %>
     <%= render 'common/error', resource: train %>
   <% end %>
 
-  <div>
-    <%= form.label :number, style: "display: block" %>
+  <div class="field">
+    <%= form.label t('.number') %>
     <%= form.number_field :number %>
   </div>
-
-  <div>
-    <%= form.label :current_station, 'Current station' %>
+  <div class="field">
+    <%= form.label t('.current_station') %>
     <%= form.collection_select :current_station_id, RailwayStation.all, :id, :title %>
   </div>
 
-  <div>
-    <%= form.label :route, 'Route' %>
+  <div class="field">
+    <%= form.label t('.route') %>
     <%= form.collection_select :route_id, Route.all, :id, :title %>
   </div>
 
-  <div>
-    <%= form.label :sort, 'Carriages order' %>
-    <%= form.select :sort, options_for_select([['Head', 1], ['Tail', 0 ]]) %>
+  <div class="field">
+    <%= form.label t('.sort') %>
+    <%= form.select :sort, options_for_select([[t('.head'), 1], [t('.tail'), 0 ]]) %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="actions">
+    <%= form.submit t('.submit', action: train.new_record? ? 'Создать' : 'Изменить') %>
   </div>
 <% end %>

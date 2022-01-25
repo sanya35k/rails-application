@@ -1,27 +1,18 @@
-<%= form_with(model: [:admin, route]) do |form| %>
+<%= form_with(model: [:admin, route], local: true) do |form| %>
   <% if route.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(route.errors.count, "error") %> prohibited this route from being saved:</h2>
-
-      <ul>
-        <% route.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+    <%= render 'common/errors' %>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
+  <div class="field">
+    <%= form.label t('.title') %>
     <%= form.text_field :title %>
   </div>
-
-  <div>
-    <%= form.label 'Railway stations on this route:' %>
+  <div class="field">
+    <%= form.label t('.list_stations_and_trains') %>
     <%= form.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {}, { multiple: true } %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="actions">
+    <%= form.submit t('.submit', action: route.new_record? ? 'Создать' : 'Изменить') %>
   </div>
 <% end %>

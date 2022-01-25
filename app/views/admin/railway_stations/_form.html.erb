@@ -1,15 +1,14 @@
-<%= form_with(model: [:admin, railway_station]) do |form| %>
+<%= form_with(model: [:admin, railway_station], local: true) do |form| %>
   <% if railway_station.errors.any? %>
-    <div style="color: red">
-      <%= render 'common/error', resource: railway_station %>
+    <%= render 'common/error', resource: railway_station %>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
+  <div class="field">
+    <%= form.label t('.title') %>
     <%= form.text_field :title %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="actions">
+    <%= form.submit t('.submit', action: railway_station.new_record? ? 'Создать' : 'Редактировать') %>
   </div>
 <% end %>

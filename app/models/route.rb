@@ -14,8 +14,8 @@ class Route < ApplicationRecord
 
       Route.all.each do |route|
         if route.railway_stations.include?(station_from) &&
-          route.railway_stations.include?(station_to) &&
-          #station_from.position_in(route) < station_to.position_in(route)
+          route.railway_stations.include?(station_to) #&&
+          #station_from.position_in(route) < station_to.position_in(route) #???
 
           routes.push({ route: Route.find(route.id), departure_station: station_from, arrival_station: station_to })
         end
