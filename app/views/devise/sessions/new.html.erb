@@ -1,4 +1,4 @@
-<h2 class="text-center">Log in</h2>
+<h2 class="text-center"><%= t('.title') %></h2>
 <div class="row ">
   <div class="col-8 offset-2 text-center">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -18,7 +18,7 @@
           </div>
         </div>
         <div class="col-auto">
-          <%= f.submit "Log in", class: 'btn btn-primary mb-2' %>
+          <%= f.submit t('.log_in'), class: 'btn btn-primary mb-2' %>
         </div>
       </div>
     <% end %>

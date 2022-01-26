@@ -73,6 +73,4 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :letter_opener
 
   config.assets.raise_runtime_errors = true
-
-
 end
