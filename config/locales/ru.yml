@@ -1,0 +1,102 @@
+ru:
+  hello: 'hello'
+  activerecord:
+    models:
+      railway_station: 'Станция'
+      train: 'Поезд'
+      attributes:
+        railway_station:
+          title: 'Название'
+        route:
+          title: 'Название'
+        train:
+          number: 'Номер'
+          current_station: 'Текущая станция'
+          route: 'Маршрут'
+    errors:
+      messages:
+        blank: 'не может быть пустым'
+  admin:
+    carriages:
+      index:
+        title: 'Список вагонов'
+        show: 'Просмотр'
+        edit: 'Изменить'
+        delete: 'Удалить'
+    railway_stations:
+      railway_station:
+        show: 'Просмотр'
+        edit: 'Изменить'
+        delete: 'Удалить'
+      new:
+        title: 'Новая станция'
+      edit:
+        title: 'Редактировать станцию'
+      show:
+        title: 'Название'
+      index:
+        title: 'Список железнодорожных станций'
+        new: 'Создать'
+      form:
+        submit: '%{action} станцию'
+        title: 'Название'
+    trains:
+      index:
+        list_trains: 'Список поездов'
+        new: 'Создать'
+      train:
+        number: 'Номер:'
+        show: 'Просмотр'
+        update: 'Изменить'
+        delete: 'Удалить'
+      new:
+        title: 'Новый поезд'
+      edit:
+        title: 'Редактировать поезд'
+      form:
+        submit: '%{action} поезд'
+        number: 'Номер'
+        sort: 'Нумерация вагонов'
+        head: 'С головы'
+        tail: 'С конца'
+        current_station: 'Текущая станция'
+        route: 'Маршрут'
+    routes:
+      new:
+        title: 'Новый маршрут'
+      edit:
+        title: 'Редактировать маршрут'
+      show:
+        title: 'Название'
+      form:
+        submit: '%{action} маршрут'
+        stations_list: 'Список станций в маршруте'
+        title: 'Название'
+  common:
+    back: 'Назад'
+    home: 'Домой'
+    edit: 'Редактировать'
+    errors: 'При заполнении формы возникли ошибки'
+    show: 'Показать'
+  home:
+    index:
+      home: 'Дом'
+      list_stations: 'Список станций'
+      list_trains: 'Список поездов'
+      list_carriages: 'Список вагонов'
+      list_routes: 'Список дорог'
+      all_tickets: 'Все билеты'
+      your_tickets: 'Твои билеты'
+      search: 'Поиск'
+  layouts:
+    application:
+      railway_station: 'Железнодорожная станция'
+      search: 'Поиск'
+      log_out: 'Выйти'
+      log_in: 'Войти'
+  searches:
+    show:
+      title: 'Поиск билета'
+      from: 'Откуда'
+      to: 'Куда'
+      search: 'Поиск'

@@ -1,0 +1,13 @@
+<p style="color: green">
+
+<h1><%= t('.list_trains') %></h1>
+
+<div id="trains">
+  <% @trains.each do |train| %>
+    <p>
+      <%= render train %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to t('.new'), new_admin_train_path %>

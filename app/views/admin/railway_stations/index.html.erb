@@ -1,0 +1,12 @@
+<div class="half-w center">
+
+  <h1> <%= t('.title') %> </h1>
+
+  <tbody>
+  <%= render @railway_stations %>
+  </tbody>
+
+  <br>
+
+  <%= link_to t('.new'), new_admin_railway_station_path %>
+</div>

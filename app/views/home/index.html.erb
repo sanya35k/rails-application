@@ -1,0 +1,18 @@
+<h1><%= t('.home') %></h1>
+
+<% if user_signed_in? %>
+  <% if current_user.admin? %>
+    <div>
+      <%= link_to t('.list_stations'), admin_railway_stations_path %> |
+      <%= link_to t('.list_trains'), admin_trains_path %> |
+      <%= link_to t('.list_carriages'), admin_carriages_path %> |
+      <%= link_to t('.list_routes'), admin_routes_path %>
+    </div>
+  <% end %>
+<% end %>
+
+<div style="height: 10px;"></div>
+
+<%= link_to t('.all_tickets'), admin_tickets_path %> |
+<%= link_to t('.your_tickets'), tickets_path %> |
+<%= link_to t('.search'), search_path %>
