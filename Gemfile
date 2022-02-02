@@ -36,6 +36,14 @@ gem "twitter-bootstrap-rails"
 
 gem 'rails_12factor'
 
+gem 'jquery-turbolinks'
+gem 'jquery-rails'
+
+gem 'turbolinks'
+gem 'webpacker'
+gem 'sass-rails', '>= 6'
+gem 'rails-ujs'
+
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
 gem 'pry'
