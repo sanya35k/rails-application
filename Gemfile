@@ -40,7 +40,7 @@ gem 'jquery-turbolinks'
 gem 'jquery-rails'
 
 gem 'turbolinks'
-gem 'webpacker'
+#gem 'webpacker'
 gem 'sass-rails', '>= 6'
 gem 'rails-ujs'
 

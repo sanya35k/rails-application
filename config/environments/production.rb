@@ -106,4 +106,9 @@ Rails.application.configure do
     domain: ENV['MAILGUN_DOMAIN']
     # api_host: 'api.eu.mailgun.net'  # Uncomment this line for EU region domains
   }
+
+  #config.serve_static_assets = true
+  config.assets.compile = true
+  #config.assets.digest = true
+  config.public_file_server.enabled = true
 end
