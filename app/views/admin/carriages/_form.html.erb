@@ -48,7 +48,9 @@
   </div>
 <% end %>
 <script>
-    $(document).ready(function () {
+    jQuery(document).ready(function($) {
+
+        $(document).ready(function () {
         console.log('123');
         $('.seats').hide();
         show_carriage_attr($('#carriage_type').val());
@@ -92,4 +94,5 @@
             }
         };
     })
+    });
 </script>
