@@ -48,7 +48,7 @@
   </div>
 <% end %>
 <script>
-    $(document).on('turbolinks:load', function () {
+    $(document).ready(function () {
         console.log('123');
         $('.seats').hide();
         show_carriage_attr($('#carriage_type').val());
