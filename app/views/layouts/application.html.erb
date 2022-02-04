@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%= javascript_include_tag "application" %>
 
 <head>
   <meta charset="utf-8">
@@ -10,6 +9,7 @@
   <title><%= content_for?(:title) ? yield(:title) : "RailsApplication" %></title>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body>
