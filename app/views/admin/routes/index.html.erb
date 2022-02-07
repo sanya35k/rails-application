@@ -5,12 +5,50 @@
 <div>
   <% @routes.each do |route| %>
     <%= route.title %>
+
+    <%= render 'form', route: route, hidden: true %>
     <p>
       <%= link_to "Show", admin_route_path(route) %> |
-      <%= link_to "Update", edit_admin_route_path(route) %>
-      <%= button_to 'Delete', { action: :destroy, id: route.id }, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%#= link_to "Update", edit_admin_route_path(route) %>
+      <%= link_to 'Edit', '', class: 'edit_route', data: { route_id: route.id } %> |
+      <%= link_to 'Delete', { action: :destroy, id: route.id }, method: :delete, data: { confirm: 'Are you sure?' } %>
     </p>
   <% end %>
 </div>
 
 <%= link_to "New", new_admin_route_path %>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+        console.log('1');
+        $('a.edit_route').on('click', function (e) {
+            console.log('2');
+            e.preventDefault();
+            var route_id;
+            var form;
+            var title;
+
+            route_id = $(this).data('routeId');
+            form = $('#edit_route_' + route_id);
+            title = $('#route_title_' + route_id);
+
+            if (!$(this).hasClass('Cancel')) {
+                $(this).html('Cancel');
+                $(this).addClass('Cancel');
+                console.log('_1_');
+            } else {
+                $(this).html('Edit');
+                $(this).removeClass('Cancel');
+                console.log('_2_');
+            }
+            console.log('3');
+            form.toggle();
+            title.toggle();
+            console.log('4');
+        })
+
+    });
+</script>

@@ -1,4 +1,5 @@
-<%= form_with(model: [:admin, route], local: true) do |form| %>
+<%= form_with(model: [:admin, route], html: { style: "display: #{hidden ? 'none' : 'block'}",\
+                                              id: "edit_route_#{route.id}" }) do |form| %>
   <% if route.errors.any? %>
     <%= render 'common/errors' %>
   <% end %>
@@ -8,7 +9,7 @@
     <%= form.text_field :title %>
   </div>
   <div class="field">
-    <%= form.label t('.list_stations_and_trains') %>
+    <%= form.label :station %>
     <%= form.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {}, { multiple: true } %>
   </div>
 
@@ -16,3 +17,5 @@
     <%= form.submit t('.submit', action: route.new_record? ? 'Создать' : 'Изменить') %>
   </div>
 <% end %>
+
+
