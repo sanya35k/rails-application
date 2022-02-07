@@ -1,0 +1,24 @@
+<div>
+  <h1>Ticket #<%= @ticket.id %></h1>
+  <p>First name: <%= @ticket.first_name %></p>
+  <p>Last name: <%= @ticket.last_name %></p>
+  <p>Train: <%= @ticket.train.number %></p>
+  <p>
+    From: <%= @ticket.first_station.title %>
+    <%= @ticket.first_station.arrival_time_in(@ticket.train.route) %>
+  </p>
+  <p>
+    To: <%= @ticket.last_station.title %>
+    <%= @ticket.last_station.departure_time_in(@ticket.train.route) %>
+  </p>
+  <!-- ??? -->
+
+  <%= link_to 'Back to trains', trains_on_route_route_path(@ticket.train.route) %> |
+  <!-- ??? -->
+
+  <%= link_to 'Buy another ticket', new_train_ticket_path(@ticket.train) %>
+
+  <%#= link_to 'Delete ticket', ticket_path, method: :delete %>
+  <%= button_to "Delete ticket", { action: :destroy, id: @ticket.id }, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%#= button_to 'Delete', ticket_path(ticket), method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>

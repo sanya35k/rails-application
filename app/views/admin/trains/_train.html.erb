@@ -1,0 +1,51 @@
+<div id="<%= dom_id train %>">
+  <p>
+    <strong><%= t('.number') %></strong>
+    <%= train.number %>
+  </p>
+
+  <%= render 'form', train: train, hidden: true %>
+
+  <%= link_to t('.show'), admin_train_path(train) %> |
+
+  <%#= link_to t('.update'), edit_admin_train_path(train) %>
+  <%= link_to 'Edit', '', class: 'edit_train', data: { train_id: train.id } %>
+  <div style="height: 8px;"></div>
+  <%= button_to t('.delete'), admin_train_path(train), method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+        console.log('1');
+        $('a.edit_train').on('click', function (e) {
+            console.log('2');
+            e.preventDefault();
+            var train_id;
+            var form;
+            var title;
+
+            train_id = $(this).data('trainId');
+            form = $('#edit_train_' + train_id);
+            title = $('#train_title_' + train_id);
+
+            if (!$(this).hasClass('Cancel')) {
+                $(this).html('Cancel');
+                $(this).addClass('Cancel');
+                console.log('_1_');
+            } else {
+                $(this).html('Edit');
+                $(this).removeClass('Cancel');
+                console.log('_2_');
+            }
+            console.log('3');
+            form.toggle();
+            title.toggle();
+            console.log('4');
+        })
+
+    });
+</script>

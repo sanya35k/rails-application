@@ -1,0 +1,56 @@
+<% if @route.trains.present? %>
+  <p>List of trains on this route:</p>
+  <ul>
+    <% @route.trains.each do | train | %>
+      <li><%= train.number %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No trains on this route!</p>
+<% end %>
+
+<% if @route.railway_stations.present? %>
+  <p>List of stations on this route:</p>
+  <ul>
+    <% @route.railway_stations.each do | railway_station | %>
+      <li><%= railway_station.title %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No stations on this route!</p>
+<% end %>
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+        console.log('1');
+        $('a.edit_route').on('click', function (e) {
+            console.log('2');
+            e.preventDefault();
+            var route_id;
+            var form;
+            var title;
+
+            route_id = $(this).data('routeId');
+            form = $('#edit_route_' + route_id);
+            title = $('#route_title_' + route_id);
+
+            if (!$(this).hasClass('Cancel')) {
+                $(this).html('Cancel');
+                $(this).addClass('Cancel');
+                console.log('_1_');
+            } else {
+                $(this).html('Edit');
+                $(this).removeClass('Cancel');
+                console.log('_2_');
+            }
+            console.log('3');
+            form.toggle();
+            title.toggle();
+            console.log('4');
+        })
+
+    });
+</script>-->

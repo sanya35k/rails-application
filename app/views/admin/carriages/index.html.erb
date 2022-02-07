@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<h1><%= t('.title') %></h1>
+
+<% @carriages.each do |carriage| %>
+  <%= carriage.type %>
+  <%= carriage.train.number %>
+
+  <%= carriage.top_seats || 0 %>
+  <%= carriage.bottom_seats || 0 %>
+  <%= carriage.side_top_seats || 0 %>
+  <%= carriage.side_bottom_seats || 0 %>
+  <%= carriage.sitting_seats || 0 %>
+
+  <% carriage = carriage.becomes(Carriage) %>
+
+  <div style="height: 10px;"></div>
+
+  <%= link_to t('.show'), admin_carriage_path(carriage) %> |
+  <%= link_to t('.edit'), edit_admin_carriage_path(carriage) %>
+
+  <div style="height: 10px;"></div>
+
+  <%= button_to t('.delete'), { action: :destroy, id: carriage.id }, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <!--{ action: :destroy, id: carriage.id }-->
+  <div style="height: 10px;"></div>
+<% end %>

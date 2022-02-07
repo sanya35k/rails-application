@@ -10,7 +10,9 @@ gem "rails", "~> 7.0.0"
 gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
+gem "pg"
+
+gem 'mailgun-ruby'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -27,8 +29,24 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+gem 'devise'
+
+gem "therubyracer"
+gem "twitter-bootstrap-rails"
+
+gem 'rails_12factor'
+
+gem 'jquery-turbolinks'
+gem 'jquery-rails'
+
+gem 'turbolinks'
+#gem 'webpacker'
+gem 'sass-rails', '>= 6'
+gem 'rails-ujs'
+
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
+gem 'pry'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -62,6 +80,10 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  gem 'spring'
+  gem 'spring-watcher-listen'
+  gem 'letter_opener'
 end
 
 group :test do
@@ -70,3 +92,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem 'rails-i18n'
